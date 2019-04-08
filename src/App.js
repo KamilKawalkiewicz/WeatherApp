@@ -25,13 +25,11 @@ class App extends Component {
     const snkTime = `${hours}:${minutes}:${seconds}`
     const nycTime = `${hours - 6}:${minutes}:${seconds}`
     // const mlnTime = `${hours + 4}:${minutes}:${seconds}`
-    if (hours > 24) {
-      hours = 0
-    }
+
     this.setState({
       snkTime,
       nycTime,
-
+      // mlnTime
     })
   }
   componentDidMount() {

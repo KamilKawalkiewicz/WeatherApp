@@ -6,9 +6,22 @@
 .container{
     display: flex;
     flex-direction: column;
-    text-align: center
+    text-align: center;
+    overflow-x: hidden;
+}
+.container h1{
+    margin: 15px
 }
 .citys{
     display: flex;
     justify-content: space-between;
+    margin-top: 5px
+}
+.city{
+    display: flex;
+    flex-direction: column;
+    width: 33.33vw;
+}
+.city h2 {
+    font-size: 20px
 }

@@ -1,68 +1,91 @@
 import React, { Component } from 'react';
 import "./style/App.css";
-import Moment from 'react-moment';
-import 'moment-timezone';
 import WeatherInfo from "./components/WeatherApp"
 
-
+const APIKeySnk = "276942cfe1b8c3e4a27a6f8aa258d42d"
 
 class App extends Component {
   state = {
-    snkTime: "",
-    nycTime: ""
+    Sanok: {
+      date: "",
+      temp: "",
+      description: "",
+      sunrise: "",
+      sunset: "",
+      temp_max: "",
+      temp_min: "",
+      pressure: "",
+      windSpeed: "",
+      err: false
+    }
   }
+  componentDidMount = () => {
+    console.log("Działa")
+    const snkAPI = `http://api.openweathermap.org/data/2.5/weather?q=Sanok&APPID=${APIKeySnk}&units=metric&lang=pl`
 
-
-
-  europeDate = () => {
-    const europeTime = new Date();
-
-    const seconds = europeTime.getSeconds() < 10 ? "0" + europeTime.getSeconds() : europeTime.getSeconds();
-    const minutes = europeTime.getMinutes() < 10 ? "0" + europeTime.getMinutes() : europeTime.getMinutes();
-    const hours = europeTime.getHours() < 10 ? "0" + europeTime.getHours() : europeTime.getHours();
-
-
-    const snkTime = `${hours}:${minutes}:${seconds}`
-    const nycTime = `${hours - 6}:${minutes}:${seconds}`
-    // const mlnTime = `${hours + 4}:${minutes}:${seconds}`
-
-    this.setState({
-      snkTime,
-      nycTime,
-      // mlnTime
-    })
+    fetch(snkAPI)
+      .then(response => {
+        if (response.ok) {
+          return response
+        }
+        throw Error("Brak połączenia")
+      })
+      .then(response => response.json())
+      .then(data => {
+        const time = new Date().toLocaleDateString()
+        this.setState({
+          Sanok: {
+            date: time,
+            temp: data.main.temp,
+            description: data.weather.description,
+            sunrise: data.sys.sunrise,
+            sunset: data.sys.sunset,
+            temp_max: data.main.temp_max,
+            temp_min: data.main.temp_min,
+            pressure: data.main.pressure,
+            windSpeed: data.wind.speed,
+            err: false
+          }
+        })
+      })
+      .catch(err => {
+        console.log(err)
+        this.setState({
+          Sanok: {
+            err: true
+          }
+        })
+      })
   }
-  componentDidMount() {
-    setInterval(() => { this.europeDate() }, 1000)
-  }
-
   render() {
-    const { snkTime } = this.state;
-    const { nycTime } = this.state;
+    const { err, date, temp, description, temp_max, temp_min } = this.state.Sanok
 
-    const unixTimestamp = 1554750715
     return (
       <>
         <div className="container">
           <h1>WeatherApp</h1>
-
           <div className="citys">
 
             <div className="city">
               <h2>Sanok</h2>
-              <p>{snkTime}</p>
+              <p>{err ? "Bład połączenia" : ""}</p>
+              <p>{`Data ${date}`}</p>
+              <p>Temp {temp} &#176;C</p>
+              <p>{description}</p>
+              <p>Temp. max {temp_max}</p>
+              <p>Temp. min {temp_min}</p>
               <WeatherInfo />
             </div>
 
             <div className="city">
               <h2>New York</h2>
-              <p>{nycTime}</p>
+              <p></p>
               <WeatherInfo />
             </div>
 
             <div className="city">
               <h2>Melbourne</h2>
-              <p></p>
+
               <WeatherInfo />
             </div>
 

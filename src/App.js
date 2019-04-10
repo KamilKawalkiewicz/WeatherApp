@@ -21,7 +21,7 @@ class App extends Component {
   }
   componentWillMount = () => {
     console.log("Działa")
-    const snkAPI = `http://api.openweathermap.org/data/2.5/weather?q=Sanok&APPID=${APIKeySnk}&units=metric&lang=pl`
+    const snkAPI = `https://api.openweathermap.org/data/2.5/weather?q=Sanok&APPID=${APIKeySnk}&units=metric&lang=pl`
 
     fetch(snkAPI)
       .then(response => {

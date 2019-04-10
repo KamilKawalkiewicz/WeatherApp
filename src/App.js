@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "./style/App.css";
 import WeatherInfo from "./components/WeatherApp"
 
-const APIKeySnk = "276942cfe1b8c3e4a27a6f8aa258d42d"
+const APIKeySnk = "435d36d7c302598eae1424aa06754a46"
 
 class App extends Component {
   state = {
@@ -19,7 +19,7 @@ class App extends Component {
       err: false
     }
   }
-  componentDidMount = () => {
+  componentWillMount = () => {
     console.log("Działa")
     const snkAPI = `http://api.openweathermap.org/data/2.5/weather?q=Sanok&APPID=${APIKeySnk}&units=metric&lang=pl`
 
@@ -37,7 +37,7 @@ class App extends Component {
           Sanok: {
             date: time,
             temp: data.main.temp,
-            description: data.weather.description,
+            description: data.weather[0].description,
             sunrise: data.sys.sunrise,
             sunset: data.sys.sunset,
             temp_max: data.main.temp_max,
@@ -59,7 +59,7 @@ class App extends Component {
   }
   render() {
     const { err, date, temp, description, temp_max, temp_min } = this.state.Sanok
-
+    console.log(description)
     return (
       <>
         <div className="container">
@@ -68,12 +68,12 @@ class App extends Component {
 
             <div className="city">
               <h2>Sanok</h2>
-              <p>{err ? "Bład połączenia" : ""}</p>
               <p>{`Data ${date}`}</p>
-              <p>Temp {temp} &#176;C</p>
               <p>{description}</p>
+              <p>Temp {temp} &#176;C</p>
               <p>Temp. max {temp_max}</p>
               <p>Temp. min {temp_min}</p>
+              <p>{err ? "Bład połączenia" : ""}</p>
               <WeatherInfo />
             </div>
 

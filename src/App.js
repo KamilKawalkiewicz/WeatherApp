@@ -2,15 +2,6 @@ import React, { Component } from 'react';
 import "./style/App.css";
 import WeatherResult from "./components/WeatherResult"
 
-
-// Weather img
-// import sunny from "../img/animated/day.svg";
-// import night from "../img/animated/night.svg";
-// import rainy from "../img/animated/rainy-1.svg";
-// import cloudy from "../img/animated/cloudy-day-2.svg";
-// import snowy from "../img/animated/snowy-1.svg"
-// import thunder from "../img/animated/thunder.svg"
-
 // apiKey
 const APIKey = "b93591400e36d6a0817384aac4a7bcee"
 

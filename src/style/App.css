@@ -8,6 +8,8 @@
     flex-direction: column;
     text-align: center;
     overflow-x: hidden;
+    height: 100vh;
+    
 }
 .container h1{
     margin: 15px

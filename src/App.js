@@ -1,205 +1,101 @@
 import React, { Component } from 'react';
 import "./style/App.css";
-import WeatherInfo from "./components/WeatherApp"
+import WeatherResult from "./components/WeatherResult"
 
-const APIKeySnk = "435d36d7c302598eae1424aa06754a46";
-const ApiKeyNYC = "035e09e8e7f7132f676ba4b4c21af02c";
-const ApiKeyMLN = "709db40e3235434983252d0a4c3599ba"
+
+// Weather img
+// import sunny from "../img/animated/day.svg";
+// import night from "../img/animated/night.svg";
+// import rainy from "../img/animated/rainy-1.svg";
+// import cloudy from "../img/animated/cloudy-day-2.svg";
+// import snowy from "../img/animated/snowy-1.svg"
+// import thunder from "../img/animated/thunder.svg"
+
+// apiKey
+const APIKey = "b93591400e36d6a0817384aac4a7bcee"
+
+
+
+
 class App extends Component {
   state = {
-    Sanok: {
-      dateSnk: "",
-      tempSnk: "",
-      descriptionSnk: "",
-      sunriseSnk: "",
-      sunsetSnk: "",
-      temp_maxSnk: "",
-      temp_minSnk: "",
-      pressureSnk: "",
-      windSpeedSnk: "",
-      errSnk: false
-    },
-    NewYork: {
-      dateNY: "",
-      tempNY: "",
-      descriptionNY: "",
-      sunriseNY: "",
-      sunsetNY: "",
-      temp_maxNY: "",
-      temp_minNY: "",
-      pressureNY: "",
-      windSpeedNY: "",
-      errNY: false
-    },
-    Melbourne: {
-      dateMLN: "",
-      tempMLN: "",
-      descriptionMLN: "",
-      sunriseMLN: "",
-      sunsetMLN: "",
-      temp_maxMLN: "",
-      temp_minMLN: "",
-      pressureMLN: "",
-      windSpeedMLN: "",
-      errMLN: false
-    }
-
+    value: "",
+    date: "",
+    temp: "",
+    description: "",
+    sunrise: "",
+    sunset: "",
+    temp_max: "",
+    temp_min: "",
+    pressure: "",
+    windSpeed: "",
+    err: false
   }
-  componentDidMount = () => {
-    console.log("Działa")
-    const snkAPI = `https://api.openweathermap.org/data/2.5/weather?q=Sanok&appid=${APIKeySnk}&units=metric&lang=pl`
-    const nycApi = `https://api.openweathermap.org/data/2.5/weather?q=New%20York,usa&appid=${ApiKeyNYC}&units=metric&lang=pl`
-    const mlnAPI = `https://api.openweathermap.org/data/2.5/weather?q=Melbourne,au&appid=${ApiKeyMLN}&units=metric&lang=pl`
+  handleChange = (e) => {
+    const value = e.target.value
 
-    // Sanok Api
-    fetch(snkAPI)
+    this.setState({
+      value
+    })
+  }
+
+  getWeather = (e) => {
+    e.preventDefault()
+    console.log("działa")
+    const city = this.state.value
+    const API = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}&units=metric&lang=pl`
+
+    fetch(API)
       .then(response => {
         if (response.ok) {
           return response
+        } else if (city === "") {
+          alert("Wpisz miasto!")
         }
         throw Error("Brak połączenia")
+
       })
       .then(response => response.json())
       .then(data => {
-        const time = new Date().toLocaleDateString()
+        const time = new Date().toLocaleTimeString()
         this.setState({
-          Sanok: {
-            dateSnk: time,
-            tempSnk: data.main.temp,
-            descriptionSnk: data.weather[0].description,
-            sunriseSnk: data.sys.sunrise,
-            sunsetSnk: data.sys.sunset,
-            temp_maxSnk: data.main.temp_max,
-            temp_minSnk: data.main.temp_min,
-            pressureSnk: data.main.pressure,
-            windSpeedSnk: data.wind.speed,
-            errSnk: false
-          }
+          date: time,
+          temp: data.main.temp,
+          description: data.weather[0].description,
+          sunrise: data.sys.sunrise,
+          sunset: data.sys.sunset,
+          temp_max: data.main.temp_max,
+          temp_min: data.main.temp_min,
+          pressure: data.main.pressure,
+          windSpeed: data.wind.speed,
+          err: false
         })
       })
       .catch(err => {
-        console.log(err)
-        this.setState({
-          Sanok: {
+        this.setState(
+          {
             err: true
           }
-        })
-      })
-    // New York Api
-    fetch(nycApi)
-      .then(response => {
-        if (response.ok) {
-          return response
-        }
-        throw Error("Brak połączenia")
-      })
-      .then(response => response.json())
-      .then(data => {
-        const time = new Date().toLocaleDateString()
-        this.setState({
-          NewYork: {
-            dateNY: time,
-            tempNY: data.main.temp,
-            descriptionNY: data.weather[0].description,
-            sunriseNY: data.sys.sunrise,
-            sunsetNY: data.sys.sunset,
-            temp_maxNY: data.main.temp_max,
-            temp_minNY: data.main.temp_min,
-            pressureNY: data.main.pressure,
-            windSpeedNY: data.wind.speed,
-            errNY: false
-          }
-        })
-      })
-      .catch(err => {
-        console.log(err)
-        this.setState({
-          Sanok: {
-            err: true
-          }
-        })
-      })
-    //Melbourne Api
-    fetch(mlnAPI)
-      .then(response => {
-        if (response.ok) {
-          return response
-        }
-        throw Error("Brak połączenia")
-      })
-      .then(response => response.json())
-      .then(data => {
-        const time = new Date().toLocaleDateString()
-        this.setState({
-          Melbourne: {
-            dateMLN: time,
-            tempMLN: data.main.temp,
-            descriptionMLN: data.weather[0].description,
-            sunriseMLN: data.sys.sunrise,
-            sunsetMLN: data.sys.sunset,
-            temp_maxMLN: data.main.temp_max,
-            temp_minMLN: data.main.temp_min,
-            pressureMLN: data.main.pressure,
-            windSpeedMLN: data.wind.speed,
-            errMLN: false
-          }
-        })
-      })
-      .catch(err => {
-        console.log(err)
-        this.setState({
-          Sanok: {
-            err: true
-          }
-        })
+        )
       })
   }
+
   render() {
-    const { errSnk, dateSnk, tempSnk, descriptionSnk, temp_maxSnk, temp_minSnk } = this.state.Sanok;
-    const { errNY, dateNY, tempNY, descriptionNY, temp_maxNY, temp_minNY } = this.state.NewYork;
-    const { errMLN, dateMLN, tempMLN, descriptionMLN, temp_maxMLN, temp_minMLN } = this.state.Melbourne
+    const { value, err } = this.state
     return (
       <>
         <div className="container">
           <h1>WeatherApp</h1>
+
           <div className="citys">
-
             <div className="city">
-              <h2>Sanok</h2>
-              <p>{`Data ${dateSnk}`}</p>
-              <p>{descriptionSnk}</p>
-              <p>Temp {tempSnk} &#176;C</p>
-              <p>Temp. max {temp_maxSnk}</p>
-              <p>Temp. min {temp_minSnk}</p>
-              <p>{errSnk ? "Bład połączenia" : ""}</p>
-              <WeatherInfo />
+              <input onChange={this.handleChange} value={value} type="text" />
+              <button onClick={this.getWeather}>Znajdź Miasto</button>
+              <WeatherResult weatherInfo={this.state} />
+              {err ? `Nie ma w bazie tego miasta:${value}` : false}
             </div>
-
-            <div className="city">
-              <h2>New York</h2>
-              <p>{`Data ${dateNY}`}</p>
-              <p>{descriptionNY}</p>
-              <p>Temp {tempNY} &#176;C</p>
-              <p>Temp. max {temp_maxNY}</p>
-              <p>Temp. min {temp_minNY}</p>
-              <p>{errNY ? "Bład połączenia" : ""}</p>
-              <WeatherInfo />
-            </div>
-
-            <div className="city">
-              <h2>Melbourne</h2>
-              <p>{`Data ${dateMLN}`}</p>
-              <p>{descriptionMLN}</p>
-              <p>Temp {tempMLN} &#176;C</p>
-              <p>Temp. max {temp_maxMLN}</p>
-              <p>Temp. min {temp_minMLN}</p>
-              <p>{errMLN ? "Bład połączenia" : ""}</p>
-              <WeatherInfo />
-            </div>
-
-          </div>
-
-        </div>
+          </div >
+        </div >
       </>
     );
   }

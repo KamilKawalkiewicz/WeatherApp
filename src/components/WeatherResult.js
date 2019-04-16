@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 
 // Weather img
 import sunny from "../img/animated/day.svg";
-// import night from "../img/animated/night.svg";
 import rainy from "../img/animated/rainy-1.svg";
 import cloudy from "../img/animated/cloudy-day-2.svg";
 import snowy from "../img/animated/snowy-1.svg"
@@ -27,6 +26,10 @@ class WeatherResult extends Component {
                     weatherImg: sunny
                 })
             } else if (description === "lekkie zachmurzenie") {
+                this.setState({
+                    weatherImg: cloudy
+                })
+            } else if (description === "całkowite zachmurzenie") {
                 this.setState({
                     weatherImg: cloudy
                 })

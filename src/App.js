@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./style/App.css";
+import "./style/footer.css"
 import WeatherResult from "./components/WeatherResult"
 
 // apiKey
@@ -10,16 +11,16 @@ const APIKey = "b93591400e36d6a0817384aac4a7bcee"
 
 class App extends Component {
   state = {
-    value: "",
+    value: "Sanok",
     date: "",
-    temp: "",
-    description: "",
-    sunrise: "",
-    sunset: "",
-    temp_max: "",
-    temp_min: "",
-    pressure: "",
-    windSpeed: "",
+    temp: "---",
+    description: "---",
+    sunrise: "---",
+    sunset: "---",
+    temp_max: "---",
+    temp_min: "---",
+    pressure: "---",
+    windSpeed: "---",
     err: false
   }
   handleChange = (e) => {
@@ -78,14 +79,18 @@ class App extends Component {
         <div className="container">
           <h1>WeatherApp</h1>
 
-          <div className="citys">
-            <div className="city">
+          <div className="city">
+            <div className="searchingPanel">
               <input onChange={this.handleChange} value={value} type="text" />
-              <button onClick={this.getWeather}>Znajdź Miasto</button>
-              <WeatherResult weatherInfo={this.state} />
-              {err ? `Nie ma w bazie tego miasta:${value}` : false}
+              <button onClick={this.getWeather}>Szukaj</button>
             </div>
-          </div >
+            <WeatherResult weatherInfo={this.state} />
+            <p>{err ? `Nie ma w bazie tego miasta:${value}` : false}</p>
+          </div>
+          <footer>
+            <p> Kamil Kawałkiewicz</p>
+            <p>Animate icon from https://creativecommons.org/licenses/by/4.0/</p>
+          </footer>
         </div >
       </>
     );

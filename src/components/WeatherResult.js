@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import '../style/WeatherResult.css'
 
 // Weather img
 import sunny from "../img/animated/day.svg";
@@ -25,15 +25,12 @@ class WeatherResult extends Component {
                 this.setState({
                     weatherImg: sunny
                 })
-            } else if (description === "lekkie zachmurzenie") {
+            } else if (description === "lekkie zachmurzenie" || description === "całkowite zachmurzenie" || description === "pochmurno z przejaśnieniami") {
                 this.setState({
                     weatherImg: cloudy
                 })
-            } else if (description === "całkowite zachmurzenie") {
-                this.setState({
-                    weatherImg: cloudy
-                })
-            } else if (description === "lekkie opady śniegu") {
+            }
+            else if (description === "lekkie opady śniegu") {
                 this.setState({
                     weatherImg: snowy
                 })
@@ -54,23 +51,24 @@ class WeatherResult extends Component {
         return (
             <>
                 <div className="weatherInfo">
-
                     <p>Godzina(pl):{date}</p>
-                    <img src={weatherImg} alt="" />
+                    <div className="imgWeather">
+                        <img src={weatherImg} alt="weather img" />
+                    </div>
                     <p>{description}</p>
 
                     <div className="temp">
-                        <p>Temeratura:{temp}&#176;C</p>
-                        <p>Temp max:{temp_max}&#176;C</p>
-                        <p>Temp min:{temp_min}&#176;C</p>
+                        <p>Temeratura: {temp}&#176;C</p>
+                        <p>Temp max: {temp_max}&#176;C</p>
+                        <p>Temp min: {temp_min}&#176;C</p>
                     </div>
                     <div className="sunMovement">
-                        <p>Wschód słońca:{sunriceTime}</p>
-                        <p>Zachód słońca:{sunsetTime}</p>
+                        <p>Wschód słońca: {sunriceTime}</p>
+                        <p>Zachód słońca: {sunsetTime}</p>
                     </div>
                     <div className="others">
-                        <p>Ciśnienie:{pressure}hPa</p>
-                        <p>Siła wiatru:{windSpeed}m/s</p>
+                        <p>Ciśnienie: {pressure}hPa</p>
+                        <p>Siła wiatru: {windSpeed}m/s</p>
                     </div>
                 </div>
             </>

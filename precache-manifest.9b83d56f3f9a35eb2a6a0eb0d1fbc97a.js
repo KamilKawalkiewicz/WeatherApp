@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "f134a51c3c0a49f33fecc7a201a4e075",
-    "url": "/WeatherApp/static/media/rainy-1.f134a51c.svg"
+    "revision": "b931d84d75a673fdd8ae1134fefd98ba",
+    "url": "/WeatherApp/static/media/cloudy-day-2.b931d84d.svg"
   },
   {
-    "revision": "dd77b7ed5f1a22de3576",
-    "url": "/WeatherApp/static/css/main.44d92b2b.chunk.css"
+    "revision": "dbd79be8611d4313ab79",
+    "url": "/WeatherApp/static/css/main.4b54a6e6.chunk.css"
   },
   {
     "revision": "4efbdecc212de1558e2a",
@@ -20,12 +20,12 @@ self.__precacheManifest = [
     "url": "/WeatherApp/static/media/day.7f93fbdb.svg"
   },
   {
-    "revision": "dd77b7ed5f1a22de3576",
-    "url": "/WeatherApp/static/js/main.942be594.chunk.js"
+    "revision": "f134a51c3c0a49f33fecc7a201a4e075",
+    "url": "/WeatherApp/static/media/rainy-1.f134a51c.svg"
   },
   {
-    "revision": "b931d84d75a673fdd8ae1134fefd98ba",
-    "url": "/WeatherApp/static/media/cloudy-day-2.b931d84d.svg"
+    "revision": "dbd79be8611d4313ab79",
+    "url": "/WeatherApp/static/js/main.8f3dff25.chunk.js"
   },
   {
     "revision": "f78cba60ad28e30ea060d424f114670a",
@@ -40,7 +40,11 @@ self.__precacheManifest = [
     "url": "/WeatherApp/static/media/sky-49520_640.a69d4d3d.jpg"
   },
   {
-    "revision": "97031a936a01634543256ef02af2b445",
+    "revision": "911d589ab26d1b3ce2e7ee20b8b2536c",
+    "url": "/WeatherApp/static/media/sky-49520_1280.911d589a.jpg"
+  },
+  {
+    "revision": "1efd40bddb4690579bb29f335108c563",
     "url": "/WeatherApp/index.html"
   }
 ];

@@ -12,7 +12,6 @@ font-family: 'Oswald', sans-serif; */
 }
 
 .container{
-    
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -31,7 +30,7 @@ font-family: 'Oswald', sans-serif; */
     flex-direction: column;
     width: 80vw;
     margin: 5px auto 0;
-     height: 90vh; 
+    height: 90vh; 
      /* height delate in land space */
 }
 .searchingPanel{
@@ -41,11 +40,13 @@ font-family: 'Oswald', sans-serif; */
 .city input{
     height: 30px;
     width: 70%;
+    font-size: 13px;
     text-align: center;
     border: none;
     outline: none;
     border-radius: 25px 0 0 25px;
     background: burlywood
+    
 }
 .city button{
     height: 30px;
@@ -56,4 +57,125 @@ font-family: 'Oswald', sans-serif; */
     outline: none; 
     background: #ffc107;
     cursor: pointer;
+}
+
+/* mobile */
+
+@media(min-width:411px) and (min-height:731px){
+    .city input{
+        height: 35px;
+    }
+    .city button{
+        height: 35px;
+    }
+}
+@media(min-width:375px) and (min-height:812px){
+    .city input{
+        height: 35px;
+    }
+    .city button{
+        height: 35px;
+    }
+}
+@media(min-width:768px) and (min-height:1024px){
+    .container{
+        background-image: url("../img/sky-49520_1280.jpg");
+    }
+    .container h1{
+        font-size: 40px
+    }
+    .city{
+        font-size: 25px
+    }
+    .city input{
+        height: 40px;
+        font-size: 20px
+    }
+    .city button{
+        height: 40px;
+        font-size: 20px;
+    }
+}
+/* deskop */
+@media(min-width:984px) and (min-height:722px){
+    .container{
+        background-image: url("../img/sky-49520_1280.jpg");
+    }
+    .container h1{
+        font-size: 35px
+    }
+    .city{
+        width: 50%;
+        font-size: 20px
+    }
+    .city input{
+        height: 32px;
+        font-size: 20px
+    }
+    .city button{
+        height: 32px;
+        font-size: 20px;
+    }
+}
+@media(min-width:1024px) and (min-height:722px){
+    .container{
+        background-image: url("../img/sky-49520_1280.jpg");
+    }
+    .container h1{
+        font-size: 40px
+    }
+    .city{
+        width: 50%;
+        font-size: 20px
+    }
+    .city input{
+        height: 35px;
+        font-size: 20px
+    }
+    .city button{
+        height: 35px;
+        font-size: 20px;
+    }
+}
+@media(min-width:1024px) and (min-height:1366px){
+    .container{
+        background-image: url("../img/sky-49520_1280.jpg");
+    }
+    .container h1{
+        font-size: 60px
+    }
+    .city{
+        font-size: 40px
+    }
+    .city input{
+        height: 55px;
+        font-size: 25px
+    }
+    .city button{
+        height: 55px;
+        font-size: 25px;
+    }
+}
+
+
+
+@media(min-width:1368px) and (min-height:937px){
+    .container{
+        background-image: url("../img/sky-49520_1280.jpg");
+    }
+    .container h1{
+        font-size: 130px
+    }
+    .city{
+        width: 40%;
+        font-size: 85px
+    }
+    .city input{
+        height: 120px;
+        font-size: 50px
+    }
+    .city button{
+        height: 120px;
+        font-size: 50px;
+    }
 }

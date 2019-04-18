@@ -7,3 +7,81 @@
 .imgWeather img{
     height: 20vh;
 }
+
+/* mobile */
+
+@media(min-width:320px)and (min-height:568px){
+    .weatherInfo p {
+        margin: 7px 0;
+    }
+    .imgWeather img{
+        height: 20vh;
+    }
+}
+@media(min-width:360px) and (min-height:640px){
+    .weatherInfo p {
+        margin: 10px 0;
+    }
+}
+@media(min-width:375px) and (min-height:667px){
+    .imgWeather img{
+        height: 22vh;
+    }
+    .weatherInfo p {
+        margin: 12px 0;
+    }
+}
+@media(min-width:375px) and (min-height:812px){
+    .imgWeather img{
+        height: 24vh;
+    }
+    .weatherInfo p {
+        margin: 20px 0;
+    }
+}
+@media(min-width:411px) and (min-height:731px){
+    .weatherInfo p {
+        margin: 12px 0;
+    }
+}
+@media(min-width:411px) and (min-height:731px){
+    .weatherInfo p {
+        margin: 18px 0;
+    }
+    .imgWeather img{
+        height: 23vh;
+    }
+}
+/* deskop */
+@media(min-width:984px) and (min-height:722px){
+    .weatherInfo p {
+        margin: 10px 0;
+    }
+    .imgWeather img{
+        height: 24vh;
+    }
+}
+@media(min-width:1024px) and (min-height:722px){
+      .weatherInfo p {
+        margin: 10px 0;
+    }
+    .imgWeather img{
+        height: 24vh;
+    }
+}
+@media(min-width:1024px) and (min-height:1366px){
+   
+    .imgWeather img{
+        height: 24vh;
+    }
+}
+
+
+@media(min-width:1368px) and (min-height:937px){
+    .weatherInfo p {
+        margin: 70px 0;
+    }
+    .imgWeather img{
+        height: 30vh;
+    }
+}

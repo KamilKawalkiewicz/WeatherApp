@@ -25,7 +25,7 @@ class WeatherResult extends Component {
                 this.setState({
                     weatherImg: sunny
                 })
-            } else if (description === "lekkie zachmurzenie" || description === "całkowite zachmurzenie" || description === "pochmurno z przejaśnieniami") {
+            } else if (description === "lekkie zachmurzenie" || description === "całkowite zachmurzenie" || description === "pochmurno z przejaśnieniami" || description === "rozproszone chmury") {
                 this.setState({
                     weatherImg: cloudy
                 })
@@ -53,7 +53,7 @@ class WeatherResult extends Component {
                 <div className="weatherInfo">
                     <p>Godzina(pl):{date}</p>
                     <div className="imgWeather">
-                        <img src={weatherImg} alt="weather img" />
+                        <img src={weatherImg} alt="" />
                     </div>
                     <p>{description}</p>
 

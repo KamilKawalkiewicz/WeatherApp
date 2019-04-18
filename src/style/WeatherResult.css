@@ -64,6 +64,7 @@
 }
 
 
+
 /* deskop */
 
 @media(min-width:984px) and (min-height:722px){
@@ -92,9 +93,9 @@
 
 @media(min-width:1368px) and (min-height:937px){
     .weatherInfo p {
-        margin: 70px 0;
+        margin: 10px 0;
     }
     .imgWeather img{
-        height: 30vh;
+        height: 20vh;
     }
 }

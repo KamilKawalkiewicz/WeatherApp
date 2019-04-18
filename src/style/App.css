@@ -127,7 +127,8 @@ font-family: 'Oswald', sans-serif; */
     }
     .city{
         width: 50%;
-        font-size: 20px
+        font-size: 20px;
+        height: 90vh;
     }
     .city input{
         height: 32px;
@@ -182,18 +183,19 @@ font-family: 'Oswald', sans-serif; */
         background-image: url("../img/sky-49520_1280.jpg");
     }
     .container h1{
-        font-size: 130px
+        font-size: 55px
     }
     .city{
         width: 40%;
-        font-size: 85px
+        font-size: 30px;
+        
     }
     .city input{
-        height: 120px;
-        font-size: 50px
+        height: 45px;
+        font-size: 25px
     }
     .city button{
-        height: 120px;
-        font-size: 50px;
+        height: 45px;
+        font-size: 25px;
     }
 }

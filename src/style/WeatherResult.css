@@ -12,10 +12,10 @@
 
 @media(min-width:320px)and (min-height:568px){
     .weatherInfo p {
-        margin: 7px 0;
+        margin: 5px 0;
     }
     .imgWeather img{
-        height: 20vh;
+        height: 24vh;
     }
 }
 @media(min-width:360px) and (min-height:640px){
@@ -52,7 +52,20 @@
         height: 23vh;
     }
 }
+
+/* landspace */
+@media(min-width:533px)and (orientation: landscape){
+    .weatherInfo p {
+        margin: 10px 0;
+    }
+    .imgWeather img{
+        height: 28vh;
+    }
+}
+
+
 /* deskop */
+
 @media(min-width:984px) and (min-height:722px){
     .weatherInfo p {
         margin: 10px 0;

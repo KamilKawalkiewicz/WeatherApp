@@ -96,6 +96,27 @@ font-family: 'Oswald', sans-serif; */
         font-size: 20px;
     }
 }
+
+/* landspace */
+
+@media(min-width:533px)and (orientation: landscape){
+    .city{
+        height: 150vh;
+    }
+    .city{
+        width: 70vw;
+    }
+}
+@media(min-width:731px)and (orientation: landscape){
+    .city{
+        width: 60vw;
+    }
+}
+@media(min-width:823px)and (orientation: landscape){
+    .city{
+        width: 60vw;
+    }
+}
 /* deskop */
 @media(min-width:984px) and (min-height:722px){
     .container{
@@ -156,9 +177,6 @@ font-family: 'Oswald', sans-serif; */
         font-size: 25px;
     }
 }
-
-
-
 @media(min-width:1368px) and (min-height:937px){
     .container{
         background-image: url("../img/sky-49520_1280.jpg");

@@ -14,6 +14,7 @@ Project is created with:
 - HTML
 - CSS
 - React
+- Fetch
 
 ## Status
 

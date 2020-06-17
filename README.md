@@ -4,7 +4,7 @@ Weather API
 
 Its Weather API with data from Api.
 
-I created this project because i want to practise fetch API.
+I created this project because I want to practise fetch API.
 You can write name of city in world press Szukaj and check weather.
 
 ## Technologies

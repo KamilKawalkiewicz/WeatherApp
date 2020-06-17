@@ -1,8 +1,8 @@
-#Weather API
+Weather API
 
 ## General info
 
-Its #Weather API with data from Api.
+Its Weather API with data from Api.
 
 I created this project because i want to practise fetch API.
 You can write name of city in world press Szukaj and check weather.
